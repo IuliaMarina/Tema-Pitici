@@ -3,4 +3,4 @@ build:
 
 .PHONY: clean
 clean:
-	rm -f pitici.exe *~ 
+	rm -f dwarfland *~
