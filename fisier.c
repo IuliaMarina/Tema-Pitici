@@ -24,11 +24,12 @@ int main () {
 	   //scanf("%d", &(pct+i)->treey);
 	   scanf("%d", &(pct[i].treex));
 	   scanf("%d", &(pct[i].treey));
-	   
-	   
 	}
-	for (i=0; i<n; ++i) 
+	
+	for (i=0; i<n; ++i) { 
 		//printf("%d , %d\n", (pct+i)->treex, (pct+i)->treey);
-		printf("%d , %d\n", pct[i].treex, pct[i].treey);	
+		printf("%d , %d\n", pct[i].treex, pct[i].treey);
+	}
+	
 	return 0;	   
 }
