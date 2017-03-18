@@ -1,5 +1,5 @@
-all:
-	gcc -o pitici.exe fisier.c -Wall
+build:
+	gcc -o dwarfland fisier.c -Wall
 
 .PHONY: clean
 clean:
