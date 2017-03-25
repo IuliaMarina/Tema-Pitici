@@ -1,35 +1,38 @@
 #include <stdio.h>
-#include <stdlib.h>
+#include <math.h.>
 
-#define MEMORIE_INSUFICIENTA 1
-
-struct point {
-	int treex;
-	int treey;
-};
-	
+/*struct point {
+	float treex;
+	float treey;
+};*/
 int main () {
-	int lightx, lighty, intensity;
-	struct point *pct;
+	float treex[100];
+	float treey[100];
+	float lightx, lighty, intensity;
+	scanf("%f", &lightx);
+	scanf("%f", &lighty);
+	scanf("%f", &intensity);
 	int n, i;
 	scanf("%d", &n);
-	pct = (struct point*) malloc(n * sizeof(struct point));
-	if (pct == NULL) {
-		printf("Nu avem suficienta memorie sa alocam vectorul Punct\n");
-		return MEMORIE_INSUFICIENTA;
+	for (i=0; i<n; i++) {
+		scanf("%f", &treex[i]);
+		scanf("%f", &treey[i]);
 	}
-	
-	for(i = 0; i < n; ++i) {
-       //scanf("%d", &(pct+i)->treex);
-	   //scanf("%d", &(pct+i)->treey);
-	   scanf("%d", &(pct[i].treex));
-	   scanf("%d", &(pct[i].treey));
+	/*for (i=0; i<n; i++) {
+		printf("x = %.2f, y = %.2f\n", treex[i], treey[i]);
+	}*/
+	float intensitateaCalculata[100];
+	int ultimacifraint;
+	for (i=0; i<n; i++) {
+		intensitateaCalculata[i] = 1/(pow((lightx-treex[i]),2)+ pow((lighty-treey[i]),2))*intensity;
+		ultimacifraint = intensitateaCalculata[i] % 10;
 	}
-	
-	for (i=0; i<n; ++i) { 
-		//printf("%d , %d\n", (pct+i)->treex, (pct+i)->treey);
-		printf("%d , %d\n", pct[i].treex, pct[i].treey);
+	for (i=0; i<n; i++) {
+		printf("Intensitatea este %.4f\n", intensitateaCalculata[i]);
 	}
-	
-	return 0;	   
+	for (i=0; i<n; i++) {
+		float h = treey[i];
+		printf("inaltimea este %f", h);
+	}
+	return 0;
 }
