@@ -1,5 +1,5 @@
 build:
-	gcc -o dwarfland fisier.c -Wall
+	gcc -o dwarfland fisier.c -Wall -lm
 
 .PHONY: clean
 clean:

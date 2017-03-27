@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <math.h.>
+#include <math.h>
 
 /*struct point {
 	float treex;
@@ -10,7 +10,7 @@
 
 int este_prim(int a) {
 	int d;
-	for(d = 2; d < a / 2; d++){
+	for(d = 2; d <= a / 2; d++){
 		if(a % d == 0){
 			return FALS;
 		}
@@ -44,7 +44,6 @@ int main () {
 	for (i=1; i<n-1; i++) {
 		intensitateaCalculata[i] = 1/(pow((lightx-treex[i]),2)+ pow((lighty-treey[i]),2))*intensity;
 		ultimacifraint = (int)intensitateaCalculata[i] % 10;
-		printf("ultima cifra a copacului: %d\n", ultimacifraint);
 		
 		ultimaCifraAnterior = (int)treey[i-1] % 10;
 		ultimaCifraCurent = (int)treey[i] % 10;
@@ -55,17 +54,23 @@ int main () {
 		val3 = val2 * 10 + ultimaCifraCurent;
 		val4 = val3 * 10 + ultimaCifraViitor;
 		
+		//printf("%d)", i);
 		if(este_prim(val1) && este_prim(val2) && este_prim(val3) && este_prim(val4)){
+			//printf("[sunt toate prime]");
 			if(indiceCopacIdeal == -1){
 				indiceCopacIdeal = i;
+				//printf("[primul copac ideal]");
 			} else {
 				if(treey[indiceCopacIdeal] > treey[i]){
 					indiceCopacIdeal = i;
+					//printf("[copac ideal mai mic %d]", i);
 				} else if(treey[indiceCopacIdeal] == treey[i] && treex[indiceCopacIdeal] > treex[i]){
 					indiceCopacIdeal = i;
+					//printf("[copac ideal mai la stanga]");
 				}
 			}
 		}
+		//printf("\n");
 	}
 	
 	
